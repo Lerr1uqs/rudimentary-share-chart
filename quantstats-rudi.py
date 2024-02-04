@@ -21,7 +21,7 @@ print(stock.sharpe())
 stock['returns'] = (stock["close"] - stock["close"].shift(1)) / stock["close"].shift(1)
 
 # qs.reports.html(stock, "SPY")
-qs.reports.html(returns=stock['returns'], output="report.html") 
+qs.reports.html(returns=stock['returns'], output="assets/report.html") 
 
 from http.server import SimpleHTTPRequestHandler
 from socketserver import TCPServer
@@ -38,7 +38,7 @@ handler.extensions_map.update({
 
 # 启动HTTP服务器
 httpd = TCPServer(('localhost', port), handler)
-print(f"Server started at http://localhost:{port}/report.html")
+print(f"Server started at http://localhost:{port}/assets/report.html")
 print("Press Ctrl+C to stop the server.")
 
 try:
